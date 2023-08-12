@@ -4,10 +4,10 @@ import time
 
 def timeTaken ( cmd ):
     start = time.time()
-    with open("input.txt", "r") as infile:
-        result = subprocess.run(cmd, stdin=infile, capture_output=True, text=True)
+    with open( "input.txt", "r" ) as infile:
+        result = subprocess.run( cmd, stdin=infile, capture_output=True, text=True )
     end = time.time()
-    print(f"Time of no thread: {end - start}")
+    return ( end - start ) 
 
 # Number of random numbers to generate
 num_numbers = int(input("Enter the number of random numbers( N ) : "))
@@ -24,11 +24,11 @@ with open('input.txt', 'w') as f:
         
 # Compile the C++ code  
 fileNoThread = "./averageNoThread"
-# fileThread = "./averagepx"  
+fileThread = "./averagepx"  
     
 # Call function to calculate time taken
-timeTaken( fileNoThread )
-# timeTaken( fileThread )
+print(f"Time of no thread: { timeTaken( fileNoThread ) }")
+print(f"Time of thread: { timeTaken( fileThread ) }")
 
 
 
